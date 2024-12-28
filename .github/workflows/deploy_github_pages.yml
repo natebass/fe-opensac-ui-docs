@@ -23,11 +23,11 @@ jobs:
     - name: Install the project
       run: uv sync --all-extras --dev
 
-    - name: Run tests
+    - name: Build HTML Sphinx documentation
       # For example, using `pytest`
       run: uv run sphinx-build . _build/productionhtml
 
-    - name: Deploy
+    - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
