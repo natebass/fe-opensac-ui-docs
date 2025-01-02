@@ -15,7 +15,7 @@ def CloneProject(
         None
 
     Raises:
-        OSError: If there is an error creating the local directory or cloning the repository.
+        TODO: OSError: If there is an error creating the local directory or cloning the repository.
 
     Example:
         git.CloneProject(
@@ -23,6 +23,12 @@ def CloneProject(
             "../_build/natebass-opensac-ui"
         )
     """
-    subprocess.run(["mkdir", "-p", local_dir], check=True)
-    subprocess.run(["git", "clone", url, local_dir], check=True)
-    print(f"Successfully cloned {url} into {local_dir}")
+    try:
+        subprocess.run(["mkdir", "-p", local_dir], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"\nError creating directory:\n{e}")
+
+    try:
+        subprocess.run(["git", "clone", url, local_dir], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"\nError cloning repository:\n{e}")

@@ -8,12 +8,10 @@
             "name": "debug default",
             "type": "debugpy",
             "request": "launch",
-            "program": "/home/nwb/.cargo/bin/uv",
+            "program": ".venv/bin/python3.12",
             "args": [
-                "run",
-                "python",
                 "opensacui/main.py",
-                "hello"
+                "repo"
             ],
             "console": "integratedTerminal",
         },
